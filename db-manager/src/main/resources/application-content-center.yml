@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    # 启动类执行时，将 .sql 执行于哪个数据库
+    url: jdbc:mysql://localhost:3306/content_center?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+
+  # 配置 sql 脚本存放路径
+  flyway:
+    locations:
+      - classpath:db/migration/content_center
