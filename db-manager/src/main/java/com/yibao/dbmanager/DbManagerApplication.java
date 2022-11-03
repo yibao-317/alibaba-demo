@@ -1,4 +1,4 @@
-package com.yibao;
+package com.yibao.dbmanager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
