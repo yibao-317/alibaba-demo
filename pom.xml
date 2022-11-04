@@ -28,12 +28,15 @@
         <druid.version>1.2.4</druid.version>
         <fastjson.version>1.2.47</fastjson.version>
         <kaptcha.version>2.3.2</kaptcha.version>
+        <mybatis-plus-generator.version>3.3.2</mybatis-plus-generator.version>
+        <velocity-engine-core.version>2.3</velocity-engine-core.version>
     </properties>
 
     <!-- 子模块 -->
     <modules>
         <module>db-manager</module>
-        <module>common</module>
+        <module>user-center</module>
+        <module>content-center</module>
     </modules>
 
     <!-- 依赖 -->
@@ -96,6 +99,18 @@
                 <groupId>com.github.penggle</groupId>
                 <artifactId>kaptcha</artifactId>
                 <version>${kaptcha.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus-generator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${velocity-engine-core.version}</version>
             </dependency>
 
         </dependencies>
