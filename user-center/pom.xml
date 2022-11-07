@@ -25,6 +25,11 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.yibao</groupId>
+			<artifactId>common</artifactId>
+		</dependency>
+
 		<!-- mysql -->
 		<dependency>
 			<groupId>mysql</groupId>

@@ -30,6 +30,7 @@
         <kaptcha.version>2.3.2</kaptcha.version>
         <mybatis-plus-generator.version>3.3.2</mybatis-plus-generator.version>
         <velocity-engine-core.version>2.3</velocity-engine-core.version>
+        <common.version>0.0.1-SNAPSHOT</common.version>
     </properties>
 
     <!-- 子模块 -->
@@ -37,6 +38,7 @@
         <module>db-manager</module>
         <module>user-center</module>
         <module>content-center</module>
+        <module>common</module>
     </modules>
 
     <!-- 依赖 -->
@@ -113,17 +115,23 @@
                 <version>${velocity-engine-core.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.yibao</groupId>
+                <artifactId>common</artifactId>
+                <version>${common.version}</version>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 
 </project>
