@@ -32,6 +32,7 @@
         <velocity-engine-core.version>2.3</velocity-engine-core.version>
         <common.version>0.0.1-SNAPSHOT</common.version>
         <nacos.version>2021.0.1.0</nacos.version>
+        <loadbalancer.version>3.1.0</loadbalancer.version>
     </properties>
 
     <!-- 子模块 -->
@@ -127,6 +128,13 @@
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
                 <version>${nacos.version}</version>
+            </dependency>
+
+            <!-- loadbalancer -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+                <version>${loadbalancer.version}</version>
             </dependency>
 
         </dependencies>

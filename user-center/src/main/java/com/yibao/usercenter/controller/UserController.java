@@ -4,6 +4,7 @@ package com.yibao.usercenter.controller;
 import com.yibao.common.dto.UserDTO;
 import com.yibao.common.util.BaseResult;
 import com.yibao.usercenter.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("/users")
+@Slf4j
 public class UserController {
 
     @Resource
@@ -26,6 +28,7 @@ public class UserController {
     @GetMapping("/{id}")
     public BaseResult findById(@PathVariable Integer id) {
         try {
+            log.info("...... 被调用 .....");
             UserDTO userDTO = userService.findById(id);
             return BaseResult.success(userDTO);
         } catch (Exception e) {
