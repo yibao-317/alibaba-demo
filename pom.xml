@@ -24,6 +24,7 @@
         <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <druid.version>1.2.11</druid.version>
         <velocity.version>1.6.2</velocity.version>
+        <fastjson.version>1.2.73</fastjson.version>
     </properties>
 
     <!-- 子模块 -->
@@ -80,6 +81,12 @@
                 <groupId>org.apache.velocity</groupId>
                 <artifactId>velocity</artifactId>
                 <version>${velocity.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
             </dependency>
 
         </dependencies>

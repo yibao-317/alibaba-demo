@@ -1,8 +1,8 @@
 package com.yibao.user.controller;
 
 
+import com.yibao.common.dto.user.UserVO;
 import com.yibao.common.util.BaseResult;
-import com.yibao.user.entity.User;
 import com.yibao.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,8 +28,8 @@ public class UserController {
     @GetMapping("/findById/{id}")
     public BaseResult findById(@PathVariable Integer id) {
         try {
-            User user = userService.findById(id);
-            return BaseResult.success(user);
+            UserVO userVO = userService.findById(id);
+            return BaseResult.success(userVO);
         } catch (Exception e) {
             return BaseResult.error(e.getMessage());
         }

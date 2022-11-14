@@ -1,8 +1,8 @@
 package com.yibao.order.controller;
 
 
+import com.yibao.common.dto.order.OrderFormVO;
 import com.yibao.common.util.BaseResult;
-import com.yibao.order.entity.OrderForm;
 import com.yibao.order.service.OrderFormService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +26,7 @@ public class OrderFormController {
     @GetMapping("/findById/{id}")
     public BaseResult findById(@PathVariable Integer id) {
         try {
-            OrderForm order = orderFormService.findById(id);
+            OrderFormVO order = orderFormService.findById(id);
             return BaseResult.success(order);
         } catch (Exception e) {
             return BaseResult.error(e.getMessage());
