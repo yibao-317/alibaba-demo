@@ -1,4 +1,4 @@
-package com.yibao.common.dto.user;
+package com.yibao.common.dto;
 
 import lombok.Data;
 
@@ -8,7 +8,7 @@ import lombok.Data;
  * @desc
  */
 @Data
-public class UserVO {
+public class UserDto {
 
     /**
      * 主键id

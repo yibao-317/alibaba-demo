@@ -1,6 +1,6 @@
-package com.yibao.order.service;
+package com.yibao.common.service;
 
-import com.yibao.common.dto.order.OrderFormVO;
+import com.yibao.common.dto.OrderFormDto;
 
 /**
  * @author yibao
@@ -14,5 +14,5 @@ public interface OrderFormService {
      * @return
      * @throws Exception
      */
-    OrderFormVO findById(Integer id) throws Exception;
+    OrderFormDto findById(Integer id) throws Exception;
 }

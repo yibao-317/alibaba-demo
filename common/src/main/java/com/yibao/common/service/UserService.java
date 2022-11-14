@@ -1,6 +1,6 @@
-package com.yibao.user.service;
+package com.yibao.common.service;
 
-import com.yibao.common.dto.user.UserVO;
+import com.yibao.common.dto.UserDto;
 
 public interface UserService {
 
@@ -10,5 +10,5 @@ public interface UserService {
      * @return
      * @throws Exception
      */
-    UserVO findById(Integer id) throws Exception;
+    UserDto findById(Integer id) throws Exception;
 }

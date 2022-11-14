@@ -1,4 +1,4 @@
-package com.yibao.common.dto.order;
+package com.yibao.common.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderFormVO {
+public class OrderFormDto {
 
     /**
      * 主键id
