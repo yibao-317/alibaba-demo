@@ -12,7 +12,3 @@ spring:
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
 
-  # nacos
-  cloud:
-    nacos:
-      server-addr: localhost:8848
