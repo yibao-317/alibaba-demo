@@ -33,6 +33,7 @@
         <module>user</module>
         <module>order</module>
         <module>common</module>
+        <module>nacos-demo</module>
     </modules>
 
     <!-- 依赖 -->

@@ -1,9 +1,12 @@
-package com.yibao.order.controller;
+package com.yibao.nacos.controller;
 
 import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.config.listener.Listener;
 import com.alibaba.nacos.api.exception.NacosException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +22,13 @@ import java.util.concurrent.Executor;
 @RestController
 @RequestMapping("/nacos")
 public class NacosController {
+
+    @Value("${mytest.val}")
+    private String configVal;
+
+    // 注入配置文件上下文
+    @Autowired
+    private ConfigurableApplicationContext applicationContext;
 
     /**
      * 方法：测试nacos配置管理是否能获取值
@@ -55,6 +65,24 @@ public class NacosController {
         } catch (NacosException e) {
             e.printStackTrace();
         }
+    }
+
+
+    /**
+     * 方法：获取在 nacos 中的属性值
+     */
+    @GetMapping("/test2")
+    public void test2() {
+        System.out.println("------》》》》 "+configVal);
+    }
+
+    /**
+     * 方法：使用上下文的方式，动态获取属性值
+     */
+    @GetMapping("/test3")
+    public void test3() {
+        String property = applicationContext.getEnvironment().getProperty("mytest.val");
+        System.out.println("----》》》 "+property);
     }
 
 }
