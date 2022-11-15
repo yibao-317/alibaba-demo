@@ -2,12 +2,14 @@ package com.yibao.order.controller;
 
 import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.config.ConfigService;
+import com.alibaba.nacos.api.config.listener.Listener;
 import com.alibaba.nacos.api.exception.NacosException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Properties;
+import java.util.concurrent.Executor;
 
 /**
  * @author yibao
@@ -36,10 +38,20 @@ public class NacosController {
             Properties properties = new Properties();
             properties.put("serverAddr", serverAddr);
             properties.put("namespace", namespace);
-
             ConfigService configService = NacosFactory.createConfigService(properties);
             String config = configService.getConfig(dataId, group, 5000);
-            System.out.println(config);
+            // 6.监听 -- 实时获取配置内容
+            configService.addListener(dataId, group, new Listener() {
+                @Override
+                public Executor getExecutor() {
+                    return null;
+                }
+                // 实时获取配置
+                @Override
+                public void receiveConfigInfo(String s) {
+                    System.out.println(s);
+                }
+            });
         } catch (NacosException e) {
             e.printStackTrace();
         }
