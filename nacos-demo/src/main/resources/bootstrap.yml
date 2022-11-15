@@ -12,3 +12,7 @@ spring:
         file-extension: yaml  # 配置文件格式
         namespace: 33f134a8-bc10-4e97-8eff-1f4c930b732c   # 命名空间
         group: TEST_GROUP   # 配置文件分组
+        shared-configs:   # 共享配置
+          - data-id: mysql.yaml
+            group: TEST_GROUP
+            refresh: true

@@ -26,6 +26,9 @@ public class NacosController {
     @Value("${mytest.val}")
     private String configVal;
 
+    @Value("${spring.datasource.url}")
+    private String url;
+
     // 注入配置文件上下文
     @Autowired
     private ConfigurableApplicationContext applicationContext;
@@ -83,6 +86,14 @@ public class NacosController {
     public void test3() {
         String property = applicationContext.getEnvironment().getProperty("mytest.val");
         System.out.println("----》》》 "+property);
+    }
+
+    /**
+     * 方法：测试共享配置文件
+     */
+    @GetMapping("/test4")
+    public void test4() {
+        System.out.println("----》》 "+url);
     }
 
 }
