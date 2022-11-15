@@ -13,3 +13,7 @@ spring:
           - data-id: mysql.yaml
             group: DEV_GROUP
             refresh: true
+      discovery:   # 服务发现
+        server-addr: 127.0.0.1:8848
+        namespace: cd14fd3e-8ac4-43ac-b63c-100e79de7845   # 命名空间
+        group: DEV_GROUP   # 分组
