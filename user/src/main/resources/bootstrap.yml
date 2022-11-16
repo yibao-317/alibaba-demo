@@ -17,3 +17,21 @@ spring:
         server-addr: 127.0.0.1:8848
         namespace: cd14fd3e-8ac4-43ac-b63c-100e79de7845   # 命名空间
         group: DEV_GROUP   # 分组
+
+  main: # 避免 dubbo 启动报错循环依赖
+    allow-circular-references: true
+
+dubbo:
+  scan:
+    base-packages: com.yibao.user.service  # 服务扫描基准包
+  protocol:
+    name: dubbo  # 协议名称
+    port: 20882  # 协议端口
+  registry:
+    address: nacos://127.0.0.1:8848
+    group: DEV_GROUP
+    parameters[namespace]: cd14fd3e-8ac4-43ac-b63c-100e79de7845  # 命名空间
+  application:
+    qos-enable: false  # 是否开启运维服务
+  consumer:
+    check: false   # 是否开启检查依赖

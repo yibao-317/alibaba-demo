@@ -25,6 +25,7 @@
         <druid.version>1.2.11</druid.version>
         <velocity.version>1.6.2</velocity.version>
         <fastjson.version>1.2.73</fastjson.version>
+        <dubbo.version>2021.0.1.0</dubbo.version>
     </properties>
 
     <!-- 子模块 -->
@@ -34,7 +35,6 @@
         <module>order</module>
         <module>common</module>
         <module>nacos-demo</module>
-        <module>gateway-demo</module>
     </modules>
 
     <!-- 依赖 -->
@@ -85,10 +85,18 @@
                 <version>${velocity.version}</version>
             </dependency>
 
+            <!-- fastjson -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- dubbo -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-dubbo</artifactId>
+                <version>${dubbo.version}</version>
             </dependency>
 
         </dependencies>

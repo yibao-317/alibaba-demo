@@ -2,13 +2,15 @@ package com.yibao.common.dto;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @author yibao
  * @create 2022 -11 -14
  * @desc
  */
 @Data
-public class UserDto {
+public class UserDto implements Serializable {
 
     /**
      * 主键id
