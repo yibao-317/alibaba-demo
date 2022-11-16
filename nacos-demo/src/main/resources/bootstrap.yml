@@ -5,6 +5,9 @@ spring:
   application:
     name: nacos-service   # 服务名
 
+  main:    # 避免 dubbo 启动报错循环依赖
+    allow-circular-references: true
+
   cloud:   # nacos
     nacos:
       config:

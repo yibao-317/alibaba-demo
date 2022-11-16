@@ -23,6 +23,7 @@ public class OrderFormServiceImp implements OrderFormService {
     @Resource
     private OrderFormMapper orderMapper;
 
+//    @DubboReference(loadbalance = "random")  // 配置负载均衡
     @DubboReference
     private UserService userService;
 

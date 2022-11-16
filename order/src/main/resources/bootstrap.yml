@@ -36,3 +36,6 @@ dubbo:
     name: order   # dubbo 服务名
   consumer:
     check: false   # 是否开启检查依赖
+  cloud:
+    subscribed-services: user # 消费方此值应为服务提供方dubbo.application.name的值
+
