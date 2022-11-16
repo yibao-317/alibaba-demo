@@ -26,12 +26,13 @@ dubbo:
     base-packages: com.yibao.order.service  # 服务扫描基准包
   protocol:
     name: dubbo  # 协议名称
-    port: 20881  # 协议端口
+    port: -1  # 协议端口
   registry:
-    address: nacos://127.0.0.1:8848
+    address: nacos://127.0.0.1:8848   # 注册中心
     group: DEV_GROUP
     parameters[namespace]: cd14fd3e-8ac4-43ac-b63c-100e79de7845  # 命名空间
   application:
     qos-enable: false  # 是否开启运维服务
+    name: order   # dubbo 服务名
   consumer:
     check: false   # 是否开启检查依赖
