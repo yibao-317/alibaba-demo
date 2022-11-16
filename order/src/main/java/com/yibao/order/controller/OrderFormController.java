@@ -2,8 +2,8 @@ package com.yibao.order.controller;
 
 
 import com.yibao.common.dto.OrderFormDto;
-import com.yibao.common.util.BaseResult;
 import com.yibao.common.service.OrderFormService;
+import com.yibao.common.util.BaseResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +18,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("/order")
+//@EnableScheduling   // 启动 xxl-job
 public class OrderFormController {
 
     @Resource
@@ -31,6 +32,12 @@ public class OrderFormController {
         } catch (Exception e) {
             return BaseResult.error(e.getMessage());
         }
+    }
+
+    @GetMapping("/testXxlJob")
+//    @Scheduled(cron = "*/5 * * * * ?")
+    public void testXxlJob() {
+        System.out.println("xxl-job is executing...");
     }
 
 
