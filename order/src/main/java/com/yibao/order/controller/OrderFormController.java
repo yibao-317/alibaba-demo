@@ -4,10 +4,7 @@ package com.yibao.order.controller;
 import com.yibao.common.dto.OrderFormDto;
 import com.yibao.common.service.OrderFormService;
 import com.yibao.common.util.BaseResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -34,11 +31,24 @@ public class OrderFormController {
         }
     }
 
+    /**
+     * 方法：测试 xxl-job
+     */
     @GetMapping("/testXxlJob")
 //    @Scheduled(cron = "*/5 * * * * ?")
     public void testXxlJob() {
         System.out.println("xxl-job is executing...");
     }
+
+
+    /**
+     * 方法：测试 Gateway 过滤器是否生效
+     */
+    @GetMapping("/gatewaySingleFilterTest")
+    public void gatewaySingleFilterTest(@RequestHeader(value = "Truth",required = false) String truth) {
+        System.out.println(truth);
+    }
+
 
 
 }
