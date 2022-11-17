@@ -17,7 +17,7 @@ import java.nio.charset.StandardCharsets;
 /**
  * @author yibao
  * @create 2022 -11 -16
- * @desc 自定义全局 gateway filter
+ * @desc 自定义全局 gateway filter 处理
  */
 @Order(-1)  // 值越小，过滤器顺序越靠前
 @Component
