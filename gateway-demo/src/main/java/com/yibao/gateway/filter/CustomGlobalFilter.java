@@ -1,13 +1,18 @@
 package com.yibao.gateway.filter;
 
+import com.alibaba.fastjson.JSON;
+import com.yibao.common.util.BaseResult;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.annotation.Order;
+import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
+
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author yibao
@@ -20,14 +25,16 @@ public class CustomGlobalFilter implements GlobalFilter {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         // 示例：拦截所有请求，判断请求中是否带有 token，且值为 admin | 放行 | 拦截
-        MultiValueMap<String, String> queryParams = exchange.getRequest().getQueryParams();
-        String token = queryParams.getFirst("token");
+        String token = exchange.getRequest().getQueryParams().getFirst("token");
         if ("admin".equals(token)) {
             // 放行
             return chain.filter(exchange);
         }
         // 拦截：禁止访问
-        exchange.getResponse().setStatusCode(HttpStatus.FORBIDDEN);
-        return exchange.getResponse().setComplete();
+        ServerHttpResponse response = exchange.getResponse();
+        response.setStatusCode(HttpStatus.FORBIDDEN);
+        byte[] bytes = JSON.toJSONString(BaseResult.error("非法访问!")).getBytes(StandardCharsets.UTF_8);
+        DataBuffer buffer = response.bufferFactory().wrap(bytes);
+        return response.writeWith(Mono.just(buffer));
     }
 }
