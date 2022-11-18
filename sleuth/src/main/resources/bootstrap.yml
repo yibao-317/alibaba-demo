@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: sleuth
+
+  cloud:   # nacos
+    nacos:
+      config:   # 配置管理
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml  # 配置文件格式
+        namespace: cd14fd3e-8ac4-43ac-b63c-100e79de7845   # 命名空间
+        group: DEV_GROUP   # 配置文件分组
+      discovery:   # 服务发现
+        server-addr: 127.0.0.1:8848
+        namespace: cd14fd3e-8ac4-43ac-b63c-100e79de7845   # 命名空间
+        group: DEV_GROUP   # 分组
+
+
+
+

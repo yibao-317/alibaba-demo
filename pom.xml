@@ -38,6 +38,9 @@
         <module>common</module>
         <module>nacos-demo</module>
         <module>gateway-demo</module>
+        <module>sleuth</module>
+        <module>rabbitmq-demo</module>
+        <module>sentinel-demo</module>
     </modules>
 
     <!-- 依赖 -->
