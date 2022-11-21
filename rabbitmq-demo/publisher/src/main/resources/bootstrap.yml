@@ -13,7 +13,17 @@ spring:
         server-addr: 127.0.0.1:8848
         namespace: cd14fd3e-8ac4-43ac-b63c-100e79de7845   # 命名空间
         group: DEV_GROUP   # 分组
-        
 
 
+  rabbitmq:
+    host: x.x.x.x  # 主机名
+    port: 5672  # 端口
+    virtual-host: /  # 虚拟主机
+    username: xxxx
+    password: xxxx
+    # 生产者确认机制 simple：同步等待直到超时  |  correlated：异步回调，定义ConfirmCallback
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+      mandatory: true   # 定义策略，fasle则直接丢弃
 
