@@ -29,10 +29,10 @@ public class AutoCodeGenerator {
 //        mpg.setGlobalConfig(gc);
 //        // 数据源配置
 //        DataSourceConfig dsc = new DataSourceConfig();
-//        dsc.setUrl("jdbc:mysql://localhost:3306/yibao?useUnicode=true&characterEncoding=UTF-8");
+//        dsc.setUrl("jdbc:mysql://10.168.1.61:32142/atp?useUnicode=true&characterEncoding=UTF-8");
 //        dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-//        dsc.setUsername("root");
-//        dsc.setPassword("123456");
+//        dsc.setUsername("super_user");
+//        dsc.setPassword("RadonDB@123");
 //        mpg.setDataSource(dsc);
 //
 //        // 包配置
@@ -58,7 +58,12 @@ public class AutoCodeGenerator {
 //        // strategy.setRestControllerStyle(true);
 //
 //        // 数据库表名
-//        strategy.setInclude("user","order");
+//        strategy.setInclude("user","bucket","code_base","code_info","model_base","model_info","operation_log",
+//                "permission_role_menu",
+//                "permission_user_role",
+//                "role",
+//                "task",
+//                "task_norm");
 //        strategy.setControllerMappingHyphenStyle(true);
 //        //表前缀
 ////        strategy.setTablePrefix("t_");
